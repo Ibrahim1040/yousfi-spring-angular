@@ -1,0 +1,9 @@
+mat-form-filed{
+  display: block;
+}
+.loginForm{
+  width: 400px;
+  flex: auto;
+  margin: auto;
+}
+
