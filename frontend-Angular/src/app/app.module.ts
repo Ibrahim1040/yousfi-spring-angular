@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+
+
 
 // Angular Material
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -21,6 +25,12 @@ import { AdminTemplateComponent } from './admin-template/admin-template.componen
 import {MatMenu, MatMenuItem, MatMenuTrigger} from '@angular/material/menu';
 import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
 import {AuthGuard} from './guards/auth.guard';
+import {AuthorizationGuard} from './guards/authorization.guard';
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
+import {provideAnimations} from '@angular/platform-browser/animations';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -29,6 +39,7 @@ import {AuthGuard} from './guards/auth.guard';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
     // Material
@@ -44,10 +55,16 @@ import {AuthGuard} from './guards/auth.guard';
     LoginComponent,
     MatMenu,
     MatMenuTrigger,
-    MatMenuItem
+    MatMenuItem,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule
   ],
   providers: [
-    provideAnimationsAsync(),AuthGuard
+    provideAnimationsAsync(),AuthGuard,AuthorizationGuard,
+    provideHttpClient(withInterceptorsFromDi()),
+    provideAnimations(),
   ],
   bootstrap: [AppComponent]
 })

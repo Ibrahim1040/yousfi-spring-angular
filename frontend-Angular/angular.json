@@ -74,6 +74,10 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
+            "options": {
+              "liveReload": true,
+              "poll": 2000
+            },
             "production": {
               "buildTarget": "frontend-angular-student-app:build:production"
             },
