@@ -13,6 +13,7 @@ import { MatSort } from '@angular/material/sort';
 import {MatCard, MatCardContent, MatCardHeader, MatCardTitle} from '@angular/material/card';
 import {MatDivider} from '@angular/material/divider';
 import {MatFormField, MatInput, MatLabel} from '@angular/material/input';
+import {StudentsService} from '../services/students.service';
 
 @Component({
   selector: 'app-payments',
@@ -49,7 +50,7 @@ export class PaymentsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private studentService : StudentsService) {}
 
   ngOnInit(): void {
     this.http.get<any[]>("http://localhost:8021/payments").subscribe(

@@ -4,9 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-
-
-
 // Angular Material
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -31,11 +28,16 @@ import {provideAnimations} from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
+import { StudentDetailsComponent } from './student-details/student-details.component';
+import {RouterModule} from '@angular/router';
+import { NewPaymentComponent } from './new-payment/new-payment.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdminTemplateComponent
+    AdminTemplateComponent,
+    StudentDetailsComponent,
+    NewPaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,8 @@ import {MatSortModule} from '@angular/material/sort';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    RouterModule
   ],
   providers: [
     provideAnimationsAsync(),AuthGuard,AuthorizationGuard,
